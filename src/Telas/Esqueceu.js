@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView
  } from 'react-native';
 
- const  Login = ({navigation}) =>  {
+ const  Esqueceu = ({navigation}) =>  {
   return (
     
     <View style={styles.tela}>
@@ -10,9 +10,9 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView
       <Image source={require('../../assets/Imagens/artmelogo4.png')} style={styles.image}/> 
         <View style={styles.container}>   
             <View style ={ styles.titulo}>
-                <Text style={styles.logo}>Login</Text>
+                <Text style={styles.logo}>Recuperar</Text>
                 <TouchableOpacity style= {styles.botaocadastrar} onPress = {() => navigation.navigate('Cadastro')}>
-                <Text style = {styles.textocadastrar}>Cadastrar</Text>
+                <Text style = {styles.textocadastrar}>Senha</Text>
                 </TouchableOpacity>
             </View>
 
@@ -31,16 +31,25 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView
           placeholderTextColor="#F97316"
           secureTextEntry={true}
         />
-      </View>
-      <Text style={styles.forgot}>Esqueceu a senha?</Text>
-      <TouchableOpacity style={styles.loginButton} onPress={()=> navigation.navigate('Menu')}>
-      
-        <Text style={styles.loginText}>Entrar</Text>
-        </TouchableOpacity>
-      
-      <TouchableOpacity>
+        <View>
+            <TextInput
+                style={styles.inputText}
+                placeholder= "Confirmar Senha"
+                placeholderTextColor="#F97316"
+                secureTextEntry={true}
+            />
+        </View>
         
+     </View> 
+     <TouchableOpacity  onPress={()=> navigation.navigate('Login')}>
+
       </TouchableOpacity>
+
+
+      
+      
+        
+      
       </View>
     
     </View>
@@ -147,4 +156,4 @@ const styles = StyleSheet.create({
   
 });
 
-export default Login;
+export default Esqueceu;
