@@ -32,7 +32,12 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView
           secureTextEntry={true}
         />
       </View>
+      <TouchableOpacity  onPress={()=> navigation.navigate('Esqueceu')}>
+
       <Text style={styles.forgot}>Esqueceu a senha?</Text>
+
+      </TouchableOpacity>
+      
       <TouchableOpacity style={styles.loginButton} onPress={()=> navigation.navigate('Menu')}>
       
         <Text style={styles.loginText}>Entrar</Text>
