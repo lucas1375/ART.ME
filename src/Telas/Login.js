@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
     color: '#F97316',
     fontSize: 17,
   },
+
   tela: {
     flex: 1,
     backgroundColor: 'white',
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
     color: '#F97316',
   },
 
-
+// Botão de cadastro
   botaocadastrar: {
    borderWidth: 1,
    borderColor: '#F97316',
