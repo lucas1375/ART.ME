@@ -84,17 +84,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  //Texto do botão Login
   logo: {  
     textAlign: 'center',
     borderRadius: 70,
+    borderWidth: 1,
+    borderColor: '#F97316',
     alignContent: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
-    backgroundColor: '#F97316',
-    padding: 10,
+    backgroundColor: 'white',
+    padding: 14,
     fontWeight: 'bold',
-    fontSize: 22,
-    color: 'white',
+    fontSize: 18,
+    color: '#F97316',
     marginBottom: 40,
   },
 
@@ -105,17 +108,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     fontWeight: 'bold',
     fontSize: 18,
-    color: '#F97316',
-    borderWidth: 1,
-    borderColor: '#F97316',
-    flex : 1,
+    color: 'white',    
     width: 130,
     height: 50,
     borderRadius: 70,
-    paddingHorizontal: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#F97316',
     padding: 10,
-    marginBottom: 40,
     },
   
   //input do Email e Senha
@@ -161,13 +159,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   image: {
-  
-  height: 100,
+   height: 100,
    width: 210,
    margin: 30
-   
   },
+
   campos: {
     flexDirection: 'row',
     flex:1,
@@ -180,7 +178,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 25,
     height: 45,
-    marginBottom: 20,
+    marginBottom: 10,
     justifyContent: 'center',
     marginHorizontal: 7,
     padding: 20,
