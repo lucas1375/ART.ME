@@ -8,47 +8,44 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView
     <View style={styles.tela}>
         
       <Image source={require('../../assets/Imagens/artmelogo4.png')} style={styles.image}/> 
-        <View style={styles.container}>   
+
+        <View style={styles.container}>
+
             <View style ={ styles.titulo}>
-                <Text style={styles.logo}>Recuperar</Text>
-                <TouchableOpacity style= {styles.botaocadastrar} onPress = {() => navigation.navigate('Cadastro')}>
-                <Text style = {styles.textocadastrar}>Senha</Text>
-                </TouchableOpacity>
+                <Text style={styles.logo}>Recuperar Senha</Text>
             </View>
 
 
-      <View style={styles.inputView}>
+        <View style={styles.inputView}>
         <TextInput
           style={styles.inputText}
           placeholder="Email"
           placeholderTextColor="#F97316"
-        />
-      </View>
-      <View style={styles.inputView}>
+          />
+        </View>
+
+        <View style={styles.inputView}>
         <TextInput
           style={styles.inputText}
           placeholder="Senha"
           placeholderTextColor="#F97316"
           secureTextEntry={true}
-        />
-        <View>
-            <TextInput
-                style={styles.inputText}
-                placeholder= "Confirmar Senha"
-                placeholderTextColor="#F97316"
-                secureTextEntry={true}
-            />
+          />
         </View>
-        
-     </View> 
-     <TouchableOpacity  onPress={()=> navigation.navigate('Login')}>
 
-      </TouchableOpacity>
-
-
+        <View style={styles.inputView}>
+        <TextInput
+          style={styles.inputText}
+          placeholder= "Confirmar Senha"
+          placeholderTextColor="#F97316"
+          secureTextEntry={true}
+          />
+        </View>      
+     
       
-      
-        
+        <TouchableOpacity style={styles.loginButton} onPress={()=> navigation.navigate('Menu')}>      
+        <Text style={styles.loginText}>Confirmar</Text>
+        </TouchableOpacity>        
       
       </View>
     
@@ -60,58 +57,70 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 70,
+    borderRadius: 30,
     paddingVertical: 20,
     width: '80%',
     backgroundColor: '#FFC700',
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  // Botão de login
   logo: {
     textAlign: 'center',
-     flex: 1,
     borderRadius: 70,
     alignContent: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
     backgroundColor: '#F97316',
-    padding: 20,
+    padding: 14,
     fontWeight: 'bold',
     fontSize: 18,
     color: 'white',
     marginBottom: 40,
   },
+
+  //input do Email e Senha
   inputView: {
     width: '80%',
     backgroundColor: '#fff',
     borderRadius: 25,
-    height: 50,
+    height: 45,
     marginBottom: 20,
     justifyContent: 'center',
     padding: 20,
   },
+
+
+  // Texto do Placeholder do Email e Senha
   inputText: {
-    fontSize: 22,
+    fontSize: 19,
     height: 50,
     color: 'orange',
   },
+
+  //Botão de Entrar
   loginButton: {
     textAlign: 'center',
     width: '50%',
-    borderRadius: 70,
+    height: 15,
+    borderRadius: 40,
     alignContent: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
     backgroundColor: '#F97316',
     padding: 20,
-    fontWeight: 'bold',
+    fontSize: 10,
     margin: 30,
   },
+
+  // Fonte do Botão Entrar
   loginText: {
-    fontSize: 25,
+    fontSize: 19,
     color: 'white',
     fontWeight: 'bold'
   },
+
   forgot: {
     color: '#F97316',
     fontSize: 22,
@@ -148,10 +157,10 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: 40,
   },
+
   titulo: {
    flexDirection: 'row',
    flex:1
-
   }
   
 });

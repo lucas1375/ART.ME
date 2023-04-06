@@ -67,19 +67,31 @@ const styles = StyleSheet.create({
   // Botão de login
   logo: {
     textAlign: 'center',
-     flex: 1,
-    borderRadius: 45,
-    height: 40,
+    borderRadius: 70,
     alignContent: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
     backgroundColor: '#F97316',
-    padding: 20,
+    padding: 14,
     fontWeight: 'bold',
     fontSize: 18,
     color: 'white',
     marginBottom: 40,
   },
+
+  // Botão de cadastro
+    botaocadastrar: {
+      borderWidth: 1,
+      borderColor: '#F97316',
+      flex : 1,
+      width: 130,
+      height: 50,
+      borderRadius: 70,
+      paddingHorizontal: 20,
+      backgroundColor: 'white',
+      padding: 10,
+      marginBottom: 40,
+    },
 
   //input do Email e Senha
   inputView: {
@@ -113,7 +125,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     margin: 30,
   },
-
+  
   // Fonte do Botão Entrar
   loginText: {
     fontSize: 19,
@@ -150,20 +162,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 18,
     color: '#F97316',
-  },
-
-// Botão de cadastro
-  botaocadastrar: {
-   borderWidth: 1,
-   borderColor: '#F97316',
-    flex : 1,
-   width: 180,
-   height: 40,
-  borderRadius: 70,
-  paddingHorizontal: 20,
-  backgroundColor: 'white',
-  padding: 20,
-  marginBottom: 40,
   },
 
   titulo: {
