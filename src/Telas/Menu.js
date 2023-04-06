@@ -18,8 +18,30 @@ const Menu = () => {
                     style={styles.pesquisa}
                 />
             </View>
-        </View >
-    )
+        
+        
+            <View style={styles.branco}>
+            <View>
+              <Image source={require('../../assets/grafite.png')} style={styles.art} />
+                </View>
+                <View>
+                <Image source={require('../../assets/Pintor.png')}  style={styles.pintor}/>
+                </View>
+                <View>
+                <Image source={require('../../assets/quadros.png')} style={styles.quadro}/>
+                </View>
+                <View>
+                <Image source={require('../../assets/artesanato.png')} style={styles.artesanato} />
+                </View>
+            </View>
+            <View>
+              <Text>Artistas Recomendados</Text>
+            <Image source={require('../../assets/art.png')} style={styles.artesanato} />
+            </View>
+        </View>
+
+        
+  )
 }
 
 const styles = StyleSheet.create({
@@ -71,7 +93,35 @@ const styles = StyleSheet.create({
     height: 32,
     margin: 30,
     direction: 'ltr'
+  },
+  branco: {
+    backgroundColor: 'white',
+    flexDirection: 'row'
+  },
+  art: {
+    width: 50,
+    height: 50,
+    marginVertical: 10,
+  },
+  pintor: {
+    width: 50,
+    height: 50,
+    marginVertical: 20,
+  },
+  quadro: {
+    width: 50,
+    height: 50,
+    marginVertical: 30,
+  },
+  artesanato: {
+    width: 50,
+    height: 50,
+    marginVertical: 40,
   }
+  
+
+
+  
 });
 
 export default Menu;
