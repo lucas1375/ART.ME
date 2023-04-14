@@ -1,46 +1,45 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TextInput, ScrollView } from 'react-native';
+import BotaoCategoria from './BotaoCategoria';
 
 const Menu = () => {
   return (
-        <View style={styles.container}>
-            <View style={{flexDirection: 'row'}}>
-                <Image source={require('../../assets/Vetor.png')} style={styles.vetor} />
-                <View style={styles.selecao}>
-                  <Text style={styles.txtsamuel}>Oi, Samuel!</Text>
-                  <Image source={require('../../assets/Samuel.png')} style={styles.artista} />
-                </View>
-            </View>
-            <View style={styles.image}>
-                <Image source={require('../../assets/artistas.png')} style={styles.imgdetalhe} />
-                <TextInput
-                    placeholder=" Pesquisar "
-                    style={styles.pesquisa}
-                />
-            </View>
-        
-        
-            <View style={styles.branco}>
-            <View>
-              <Image source={require('../../assets/grafite.png')} style={styles.art} />
-                </View>
-                <View>
-                <Image source={require('../../assets/Pintor.png')}  style={styles.pintor}/>
-                </View>
-                <View>
-                <Image source={require('../../assets/quadros.png')} style={styles.quadro}/>
-                </View>
-                <View>
-                <Image source={require('../../assets/artesanato.png')} style={styles.artesanato} />
-                </View>
-            </View>
-            <View>
-              <Text>Artistas Recomendados</Text>
-            <Image source={require('../../assets/art.png')} style={styles.artesanato} />
-            </View>
+    <View style={styles.container}>
+      <View style={{ flexDirection: 'row' }}>
+        <Image source={require('../../assets/Vetor.png')} style={styles.vetor} />
+        <View style={styles.selecao}>
+          <Text style={styles.txtsamuel}>Oi, Samuel!</Text>
+          <Image source={require('../../assets/Samuel.png')} style={styles.artista} />
         </View>
+      </View>
+      <View style={styles.image}>
+        <Image source={require('../../assets/artistas.png')} style={styles.imgdetalhe} />
+        <TextInput
+          placeholder=" Pesquisar "
+          style={styles.pesquisa}
+        />
+      </View>
 
-        
+
+      <View style={styles.branco}>
+        <ScrollView horizontal>
+          <BotaoCategoria texto={'Grafite'} imagem={require('../../assets/grafite.png')} />
+
+          <BotaoCategoria texto={'Pintor'} imagem={require('../../assets/Pintor.png')} />
+
+          <BotaoCategoria texto={'Pintor'} imagem={require('../../assets/quadros.png')} />
+
+          <BotaoCategoria texto={'Pintor'} imagem={require('../../assets/artesanato.png')} />
+        </ScrollView>
+
+      </View>
+      <View>
+        <Text>Artistas Recomendados</Text>
+        <Image source={require('../../assets/art.png')} style={styles.artesanato} />
+      </View>
+    </View>
+
+
   )
 }
 
@@ -50,11 +49,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   artista: {
-    height: 65,
-    width: 65,
+    height: 60,
+    width: 60,
     marginVertical: 30,
     marginHorizontal: 15,
-    direction: 'ltr'
+    direction: ''
   },
   txtsamuel: {
     direction: 'rtl',
@@ -68,13 +67,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
     alignItems: 'center',
     flex: 1
-  },
-  imgdetalhe: {
-    height: 220,
-    width: 650,
-    margin: 30,
-    borderRadius: 10,
-    opacity: '80%'
   },
   image: {
     justifyContent: 'center',
@@ -99,29 +91,33 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   art: {
-    width: 50,
-    height: 50,
-    marginVertical: 10,
+    width: 70,
+    height: 40,
+    backgroundColor: 'white'
   },
   pintor: {
     width: 50,
     height: 50,
-    marginVertical: 20,
+    marginVertical: 30,
+    marginHorizontal: 20
   },
   quadro: {
     width: 50,
     height: 50,
     marginVertical: 30,
+    marginHorizontal: 20
   },
   artesanato: {
     width: 50,
     height: 50,
-    marginVertical: 40,
+    marginVertical: 30,
+    marginHorizontal: 20
   }
-  
 
 
-  
+
+
+
 });
 
 export default Menu;
