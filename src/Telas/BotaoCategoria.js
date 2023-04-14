@@ -19,6 +19,8 @@ const BotaoCategoria = (props) => {
           <Text style={{textAlign: 'center', fontWeight: 'bold'}}>{texto}</Text>
         </View>
     );
+
+    
 }
 
 export default BotaoCategoria;

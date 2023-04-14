@@ -33,9 +33,19 @@ const Menu = () => {
         </ScrollView>
 
       </View>
+      
+      <Text>Artistas Recomendados</Text>
+      
+      <View style={styles.jeff}>
+      <Image source={require('../../assets/art.png')} style={styles.cara} />
+      <Text>Jefferson
+        Santos Fotografo
+        <Image source={require('../../assets/estrela.png')} style={styles.estrela} />
+      </Text>
+      
+      </View>
       <View>
-        <Text>Artistas Recomendados</Text>
-        <Image source={require('../../assets/art.png')} style={styles.artesanato} />
+      
       </View>
     </View>
 
@@ -112,7 +122,36 @@ const styles = StyleSheet.create({
     height: 50,
     marginVertical: 30,
     marginHorizontal: 20
+  },
+  imgdetalhe:{
+    width: 300,
+    height: 100,
+    padding: 30
+  },
+  jeff: {
+    display: 'flex', 
+    justifyContent: 'center',
+     alignItems: 'center',
+      padding: 5, 
+    borderRadius: 2,
+     borderWidth: 4,
+      borderColor: '#F97316',
+       margin: 4,
+       backgroundColor: 'white'
+  },
+  cara: {
+     height: 50,
+     width: 90,
+     marginVertical: 10,
+    marginHorizontal: 5
+  },
+  estrela: {
+    width: 10,
+    height: 10,
+    marginHorizontal:10,
+    marginVertical: 40
   }
+
 
 
 
