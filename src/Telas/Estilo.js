@@ -2,16 +2,17 @@ import {StyleSheet} from "react-native";
 
 const Estilo = StyleSheet.create({
 
-    // Container
-    container: {
+    // Container da página Login
+    containerLogin: {
       borderRadius: 30,
       paddingVertical: 20,
       width: '80%',
-      height: '60%',
+      height: '55%',
       backgroundColor: '#FFC700',
       alignItems: 'center',
       justifyContent: 'center',
-    },
+     
+    },   
   
     // Botão de login
     logo: {
@@ -26,13 +27,14 @@ const Estilo = StyleSheet.create({
       color: 'white',
       marginBottom: 20,
       padding: 14,
+      width: 130,
+      height: 50,
     },
   
     // Botão de cadastro
       botaocadastrar: {
         borderWidth: 1,
         borderColor: '#F97316',
-        flex : 1,
         width: 130,
         height: 50,
         borderRadius: 70,
@@ -40,8 +42,20 @@ const Estilo = StyleSheet.create({
         backgroundColor: 'white',
         padding: 10,
         marginBottom: 40,
-      },    
-  
+      }, 
+
+    //Texto do botão cadastrar
+    textocadastrar: {
+      textAlign: 'center',
+      alignContent: 'center',
+      justifyContent: 'center',
+      fontWeight: 'bold',
+      fontSize: 18,
+      color: '#F97316',    
+      borderRadius: 70,
+      backgroundColor: 'white',
+    },
+
     //input do Email e Senha
     inputView: {
       width: '80%',
@@ -63,14 +77,14 @@ const Estilo = StyleSheet.create({
     //Botão de Entrar
     loginButton: {
       textAlign: 'center',
-      width: '50%',
-      height: 30,
+      width: '40%',
+      height: 40,
       borderRadius: 40,
       alignContent: 'center',
       justifyContent: 'center',
       paddingHorizontal: 20,
       backgroundColor: '#F97316',
-      padding: 20,
+      padding: 5,
       fontSize: 10,
       margin: 30,
     },
@@ -79,7 +93,9 @@ const Estilo = StyleSheet.create({
     loginText: {
       fontSize: 19,
       color: 'white',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      textAlign:'center',
+
     },
   
     // Frase de 'Esqueceu a senha'
@@ -102,29 +118,71 @@ const Estilo = StyleSheet.create({
     margin: 30         
     },
   
-    //Texto do botão cadastrar
-    textocadastrar: {
-      textAlign: 'center',
-      alignContent: 'center',
-      justifyContent: 'center',
-      fontWeight: 'bold',
-      fontSize: 18,
-      color: '#F97316',
-    },
+    
   
     titulo: {
      flexDirection: 'row',
      flex:1
     },
 
-    // --------- Propriedade da tela de Boas vindas --------
+    // --------- Estilos da tela de Cadastro ----------
+
+      // Container da página Cadastro
+      containerCadastro: {
+        borderRadius: 30,
+        paddingVertical: 20,
+        width: '80%',
+        height: '63%',
+        backgroundColor: '#FFC700',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+    
+      //Texto do botão Login
+      logoCadastro: {  
+        textAlign: 'center',
+        borderRadius: 70,
+        borderWidth: 1,
+        borderColor: '#F97316',
+        alignContent: 'center',
+        backgroundColor: 'white',
+        padding: 14,
+        fontWeight: 'bold',
+        fontSize: 18,
+        color: '#F97316',
+        width: 130,
+        height: 50,
+      },
+    
+      campos: {
+        flexDirection: 'row',
+        flex:1,
+        justifyContent: 'center'   
+         
+       },
+    
+       inputcurto: {
+        width: '39%',
+        backgroundColor: '#fff',
+        borderRadius: 25,
+        height: 45,
+        marginBottom: 10,
+        justifyContent: 'center',
+        marginHorizontal: 7,
+        padding: 20,
+        fontSize: 19,
+      },
+      // ---------------------------------------------
+
+
+    // --------- Estilos da tela de Boas vindas --------
 
   // Botão da tela de boas vindas
     fundobotao:{
       backgroundColor: 'white',
-      padding: 25,
+      padding: 12,
       width:'50%',
-      height: 70,
+      height: 50,
       margin:15,
       borderRadius:35     
     },

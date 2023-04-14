@@ -10,7 +10,7 @@ import Estilo from './Estilo';
         
       <Image source={require('../../assets/Imagens/artmelogo4.png')} style={Estilo.image}/> 
 
-        <View style={Estilo.container}>   
+        <View style={Estilo.containerLogin}>   
 
             <View style ={ Estilo.titulo}>
                 <Text style={Estilo.logo}>Login</Text>
@@ -27,7 +27,7 @@ import Estilo from './Estilo';
           placeholderTextColor="#F97316"
         />
       </View>
-
+      
       <View style={Estilo.inputView}>
         <TextInput
           style={Estilo.inputText}
