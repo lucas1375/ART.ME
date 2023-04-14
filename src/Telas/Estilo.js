@@ -7,7 +7,7 @@ const Estilo = StyleSheet.create({
       borderRadius: 30,
       paddingVertical: 20,
       width: '80%',
-      height: '55%',
+      height: '45%',
       backgroundColor: '#FFC700',
       alignItems: 'center',
       justifyContent: 'center',
@@ -132,11 +132,24 @@ const Estilo = StyleSheet.create({
         borderRadius: 30,
         paddingVertical: 20,
         width: '80%',
-        height: '63%',
+        height: '70%',
         backgroundColor: '#FFC700',
         alignItems: 'center',
         justifyContent: 'center',
       },
+
+      // Botão de cadastro
+      botaocadastrar2: {
+        borderWidth: 1,
+        borderColor: '#F97316',
+        width: 130,
+        height: 50,
+        borderRadius: 70,
+        paddingHorizontal: 20,
+        backgroundColor: 'white',
+        padding: 10,
+        marginBottom: 40,
+      }, 
     
       //Texto do botão Login
       logoCadastro: {  

@@ -16,7 +16,7 @@ const  Cadastro = ({navigation}) => {
                 <TouchableOpacity onPress = {() => navigation.navigate('Login')}>
                 <Text style={Estilo.logoCadastro}>Login</Text>
                 </TouchableOpacity>                
-                <Text style = {Estilo.textocadastrar}>Cadastrar</Text>
+                <Text style = {Estilo.logo}>Cadastrar</Text>
           </View>
 
           <View style={Estilo.inputView}>
