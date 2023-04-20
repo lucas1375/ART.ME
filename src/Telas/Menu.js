@@ -14,10 +14,7 @@ const Menu = () => {
       </View>
       <View style={styles.image}>
         <Image source={require('../../assets/artistas.png')} style={styles.imgdetalhe} />
-        <TextInput
-          placeholder=" Pesquisar "
-          style={styles.pesquisa}
-        />
+        
       </View>
 
 
