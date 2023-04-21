@@ -55,22 +55,22 @@ const validationCadastro = yup.object().shape({
 
 })
 
-  // const [enviar, setEnviar] = useState(false);
-  // const [dados, setDados] = useState();
+  const [enviar, setEnviar] = useState(false);
+  const [dados, setDados] = useState();
 
 
-  // useEffect(()=>{
-  //   if(enviar==true){ 
-  //     console.log(dados)
-  //     handleClickCadastro(dados)
-  //   }
+  useEffect(()=>{
+    if(enviar==true){ 
+      console.log(dados)
+      handleClickCadastro(dados)
+    }
    
-  //   return () => {
-  //     setDados([])
-  //     setEnviar(false)
-  //   }
+    return () => {
+      setDados([])
+      setEnviar(false)
+    }
 
-  // }, [enviar]);
+  }, [enviar]);
 
   const userInfo = {
     nome: 'Samuel',
@@ -87,11 +87,11 @@ const validationCadastro = yup.object().shape({
   return (
     <Formik
       initialValues={{
-        nome: 'Samuel',
-        email: 'samuel@gmail.com',
-        password: '123456',
-        telefone: '1198877554',
-        uf: 'SP',
+        nome: '',
+        email: '',
+        password: '',
+        telefone: '',
+        uf: '',
       }}
       // validationSchema={validationCadastro}
       onSubmit={values=>{handleClickCadastro(values)}}
@@ -185,8 +185,8 @@ const validationCadastro = yup.object().shape({
               <Text style={Estilo.loginText}>Entrar</Text>
             </TouchableOpacity> */}
 
-            <TouchableOpacity style={Estilo.loginButton} onPress={handleSubmit}>
-              <Text style={Estilo.loginText}>Entrar</Text>
+            <TouchableOpacity style={Estilo.loginButton} onPress={{handleSubmit}}>
+              <Text style={Estilo.loginText}>Cadastrar</Text>
             </TouchableOpacity>
 
 

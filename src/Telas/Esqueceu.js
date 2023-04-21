@@ -102,14 +102,13 @@ const styles = StyleSheet.create({
   //Botão de Entrar
   loginButton: {
     textAlign: 'center',
-    width: '50%',
-    height: 15,
+    width: 127,
+    height: 40,
     borderRadius: 40,
     alignContent: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
     backgroundColor: '#F97316',
-    padding: 20,
     fontSize: 10,
     margin: 30,
   },

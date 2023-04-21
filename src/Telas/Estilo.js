@@ -132,7 +132,7 @@ const Estilo = StyleSheet.create({
         borderRadius: 30,
         paddingVertical: 20,
         width: '80%',
-        height: 450,
+        height: 460,
         backgroundColor: '#FFC700',
         alignItems: 'center',
         justifyContent: 'center',
