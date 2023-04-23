@@ -11,7 +11,7 @@ const Cadastro = ({ navigation }) => {
 
   // Axios Cadastro
 const handleClickCadastro = async (values) => {
-  axios.post("http://10.0.1.97:3005/cadastrarUsuario", {
+  axios.post("http://192.168.100.6:3005/cadastrarUsuario", {
     nome: values.nome,
     email: values.email,
     password: values.password,
@@ -31,28 +31,29 @@ const handleClickCadastro = async (values) => {
 
 // Validação dos dados
 const validationCadastro = yup.object().shape({
-  email: yup
-    .string()
-    .email('Não é um Email')
-    .required("Este campo é obrigatório"),
-
+  
   nome: yup
-    .string()
-    .required("Este campo é obrigatório"),
-
-  uf: yup
-    .string()
-    .required("Este campo é obrigatório"),
-
-  telefone: yup
-    .string()
-    .required("Este campo é obrigatório"),
+  .string()
+  .required("Este campo é obrigatório"),
+    
+  email: yup
+  .string()
+  .email('Não é um Email')
+  .required("Este campo é obrigatório"),
 
   password: yup
     .string()
     .min(8, 'A senha deve ter 8 caracteres')
     .required("Este campo é obrigatório"),
 
+  telefone: yup
+  .string()
+  .required("Este campo é obrigatório"),
+
+  uf: yup
+  .string()
+  .required("Este campo é obrigatório"),
+  
 })
 
   const [enviar, setEnviar] = useState(false);
@@ -63,6 +64,8 @@ const validationCadastro = yup.object().shape({
     if(enviar==true){ 
       console.log(dados)
       handleClickCadastro(dados)
+      setDados({})
+      setEnviar(false)
     }
    
     return () => {
@@ -73,11 +76,11 @@ const validationCadastro = yup.object().shape({
   }, [enviar]);
 
   const userInfo = {
-    nome: 'Samuel',
-    email: 'samuel@gmail.com',
-    password: '123456',
-    telefone: '1198877554',
-    uf: 'SP',
+    nome: '',
+    email: '',
+    password: '',
+    telefone: '',
+    uf: '',
   };
 
   const [error, setError] = useState('');
@@ -93,6 +96,7 @@ const validationCadastro = yup.object().shape({
         telefone: '',
         uf: '',
       }}
+
       // validationSchema={validationCadastro}
       onSubmit={values=>{handleClickCadastro(values)}}
       // onSubmit={values => console.log(values)}
@@ -101,9 +105,7 @@ const validationCadastro = yup.object().shape({
       {({ handleChange, handleBlur, handleSubmit, values }) => (
 
         <View style={Estilo.tela}>
-
           <Image source={require('../../assets/Imagens/artmelogo4.png')} style={Estilo.image} />
-
           <View style={Estilo.containerCadastro}>
 
             <View style={Estilo.titulo}>
@@ -115,7 +117,6 @@ const validationCadastro = yup.object().shape({
 
             {/* input nome */}
             < View style={Estilo.inputView}>
-
               <TextInput
                 style={Estilo.inputText}
                 placeholder="Nome"
@@ -128,7 +129,6 @@ const validationCadastro = yup.object().shape({
 
             {/* input email */}
             <View style={Estilo.inputView}>
-
               <TextInput
                 style={Estilo.inputText}
                 placeholder="Email"
@@ -141,7 +141,6 @@ const validationCadastro = yup.object().shape({
 
             {/* input senha */}
             <View style={Estilo.inputView}>
-
               <TextInput
                 style={Estilo.inputText}
                 placeholder="Senha"
@@ -180,12 +179,12 @@ const validationCadastro = yup.object().shape({
                 />
               </View>
             </View>
-
+            
             {/* <TouchableOpacity style={Estilo.loginButton} onPress={() => navigation.navigate('Menu')}>
               <Text style={Estilo.loginText}>Entrar</Text>
             </TouchableOpacity> */}
 
-            <TouchableOpacity style={Estilo.loginButton} onPress={{handleSubmit}}>
+            <TouchableOpacity style={Estilo.loginButton} onPress={handleSubmit}>
               <Text style={Estilo.loginText}>Cadastrar</Text>
             </TouchableOpacity>
 
