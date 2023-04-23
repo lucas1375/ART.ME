@@ -11,6 +11,8 @@ const Cadastro = ({ navigation }) => {
 
   // Axios Cadastro
 const handleClickCadastro = async (values) => {
+  // Coloque o ip do seu pc. Para isso, abra o console e digite
+  // 'ipconfig' copie o endereço IPV4 e cole na linha abaixo
   axios.post("http://192.168.100.6:3005/cadastrarUsuario", {
     nome: values.nome,
     email: values.email,
