@@ -1,11 +1,58 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView
  } from 'react-native';
+ import { Formik } from 'formik';
+import * as yup from "yup";
+import axios from "axios";
 import Estilo from './Estilo';
 
  const  Login = ({navigation}) =>  {
+
+  // const [user, setUser] = useState(null);
+  // const [password, setPassword] = useState(null);
+  // const [message, setMessage] = useState(null);
+
+const handleClickLogin = async (values) => {
+  // Coloque o ip do seu pc. Para isso, abra o console e digite
+  // 'ipconfig' copie o endereço IPV4 e cole na linha abaixo
+  axios.get("http://192.168.100.6:3005/listarUsuario", {
+    email: values.email,
+    password: values.password,
+  }, {mode: 'no-cors'})
+
+  .then((response) => {
+    if(response == 201){
+      handleCadastroSuccess();
+    } else if(response == 404){
+      console.log("algo errado")
+    }
+    
+  })
+  .catch((error) => {
+    console.log(error);
+  })  
+}
+
   return (
     
+  <Formik
+      
+      initialValues={{
+          email: '',
+          password: ''          
+        }}
+  
+      onSubmit={values=>{handleClickLogin(values)}}
+      // onSubmit={values => console.log(values)}
+        >
+  
+        {({ handleChange,
+            handleBlur,
+            handleSubmit,
+            isValid,
+            values 
+          }) => (
+
     <View style={Estilo.tela}>
         
       <Image source={require('../../assets/Imagens/artmelogo4.png')} style={Estilo.image}/> 
@@ -21,10 +68,14 @@ import Estilo from './Estilo';
 
 
       <View style={Estilo.inputView}>
+        
         <TextInput
           style={Estilo.inputText}
           placeholder="Email"
           placeholderTextColor="#F97316"
+          value={values.email}
+          onChangeText={handleChange('email')}
+          onBlur={handleBlur('email')}
         />
       </View>
       
@@ -32,7 +83,10 @@ import Estilo from './Estilo';
         <TextInput
           style={Estilo.inputText}
           placeholder="Senha"
+          value={values.password}
           placeholderTextColor="#F97316"
+          onChangeText={handleChange('password')}
+          onBlur={handleBlur('password')}
           secureTextEntry={true}
         />
       </View>
@@ -41,14 +95,18 @@ import Estilo from './Estilo';
       <Text style={Estilo.forgot}>Esqueceu a senha?</Text>
       </TouchableOpacity>
       
-      <TouchableOpacity style={Estilo.loginButton} onPress={()=> navigation.navigate('Menu')}>      
+      <TouchableOpacity style={Estilo.loginButton} onPress={handleSubmit} disabled={!isValid}>      
         <Text style={Estilo.loginText}>Entrar</Text>
       </TouchableOpacity>
       
       </View>
     
     </View>
-  
+
+      )
+      }
+
+    </Formik>
 
   );
 }

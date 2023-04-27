@@ -7,7 +7,7 @@ const Estilo = StyleSheet.create({
       borderRadius: 30,
       paddingVertical: 20,
       width: '80%',
-      height: '55%',
+      height: 360,
       backgroundColor: '#FFC700',
       alignItems: 'center',
       justifyContent: 'center',
@@ -185,6 +185,50 @@ const Estilo = StyleSheet.create({
         padding: 20,
         fontSize: 19,
       },
+
+      // Modal
+      modalContainer: {
+        borderRadius: 30,
+        paddingVertical: 20,
+        width: '80%',
+        height: 460,
+        backgroundColor: '#FFC700',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+
+      modalText: {
+      fontSize: 19,
+      color: 'white',
+      fontWeight: 'bold',
+      textAlign:'center',
+      },
+
+      modalButton: {
+      textAlign: 'center',
+      width: '40%',
+      height: 40,
+      borderRadius: 40,
+      alignContent: 'center',
+      justifyContent: 'center',
+      paddingHorizontal: 20,
+      backgroundColor: '#F97316',
+      padding: 5,
+      fontSize: 10,
+      margin: 30,
+      },
+
+      modalButtonText: {
+      textAlign: 'center',
+      alignContent: 'center',
+      justifyContent: 'center',
+      fontWeight: 'bold',
+      fontSize: 18,
+      color: '#F97316',    
+      borderRadius: 70,
+      backgroundColor: 'white',
+      },
+
       // ---------------------------------------------
 
 

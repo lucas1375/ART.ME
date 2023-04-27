@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView, Modal } from 'react-native';
 import { Formik } from 'formik';
 import * as yup from "yup";
 import axios from "axios";
 import Estilo from './Estilo';
-
-
 
 const Cadastro = ({ navigation }) => {
 
@@ -19,16 +17,19 @@ const handleClickCadastro = async (values) => {
     password: values.password,
     telefone: values.telefone,
     uf: values.uf
-  }, {mode: 'no-cors'}).then((response) => {
+  }, {mode: 'no-cors'})
+
+  .then((response) => {
     if(response == 201){
-      console.log('Cadastro realizado com sucesso!');
+      handleCadastroSuccess();
     } else if(response == 400){
       console.log("algo errado")
     }
     
-  }).catch((error) => {
-    console.log(error);
   })
+  .catch((error) => {
+    console.log(error);
+  })  
 }
 
 // Validação dos dados
@@ -58,40 +59,50 @@ const validationCadastro = yup.object().shape({
   
 })
 
-  const [enviar, setEnviar] = useState(false);
-  const [dados, setDados] = useState();
+  // const [showModal, setShowModal] = useState(false);
+  // const [enviar, setEnviar] = useState(false);
+  // const [dados, setDados] = useState();
+  // const [message, setMessage] = useState(null);
 
+  //informaria caso o cadastro fosse completado
+  // const handleCadastroSuccess = () => {
+  //   setShowModal(true);
+  // }
 
-  useEffect(()=>{
-    if(enviar==true){ 
-      console.log(dados)
-      handleClickCadastro(dados)
-      setDados({})
-      setEnviar(false)
-    }
+  // useEffect(()=>{
+  //   if(enviar==true){ 
+  //     console.log(dados)
+  //     handleClickCadastro(dados)
+  //     setDados({})
+  //     setEnviar(false)
+  //   }
    
-    return () => {
-      setDados([])
-      setEnviar(false)
-    }
+  //   return () => {
+  //     setDados([])
+  //     setEnviar(false)
+  //   }
 
-  }, [enviar]);
+  // }, [enviar]);
 
-  const userInfo = {
-    nome: '',
-    email: '',
-    password: '',
-    telefone: '',
-    uf: '',
-  };
+  // teoricamente não usado
+  // const userInfo = {
+  //   nome: '',
+  //   email: '',
+  //   password: '',
+  //   telefone: '',
+  //   uf: '',
+  // };
 
   const [error, setError] = useState('');
 
-  const { nome, email, password, telefone, uf } = userInfo;
+  // teoricamente não usado
+  // const { nome, email, password, telefone, uf } = userInfo;
 
   return (
     <Formik
-      initialValues={{
+      
+    // validationSchema={validationCadastro}
+    initialValues={{
         nome: '',
         email: '',
         password: '',
@@ -99,12 +110,16 @@ const validationCadastro = yup.object().shape({
         uf: '',
       }}
 
-      // validationSchema={validationCadastro}
-      onSubmit={values=>{handleClickCadastro(values)}}
-      // onSubmit={values => console.log(values)}
+    onSubmit={values=>{handleClickCadastro(values)}}
+    // onSubmit={values => console.log(values)}
       >
 
-      {({ handleChange, handleBlur, handleSubmit, values }) => (
+      {({ handleChange,
+          handleBlur,
+          handleSubmit,
+          isValid,
+          values 
+        }) => (
 
         <View style={Estilo.tela}>
           <Image source={require('../../assets/Imagens/artmelogo4.png')} style={Estilo.image} />
@@ -119,6 +134,9 @@ const validationCadastro = yup.object().shape({
 
             {/* input nome */}
             < View style={Estilo.inputView}>
+              {error.nome &&
+                  <Text style={{ fontSize: 10, color: 'red' }}>{error.nome}</Text>
+              }
               <TextInput
                 style={Estilo.inputText}
                 placeholder="Nome"
@@ -131,6 +149,9 @@ const validationCadastro = yup.object().shape({
 
             {/* input email */}
             <View style={Estilo.inputView}>
+              {error.email &&
+                  <Text style={{ fontSize: 10, color: 'red' }}>{error.email}</Text>
+              }
               <TextInput
                 style={Estilo.inputText}
                 placeholder="Email"
@@ -143,6 +164,9 @@ const validationCadastro = yup.object().shape({
 
             {/* input senha */}
             <View style={Estilo.inputView}>
+              {error.password &&
+                  <Text style={{ fontSize: 10, color: 'red' }}>{error.password}</Text>
+              }
               <TextInput
                 style={Estilo.inputText}
                 placeholder="Senha"
@@ -159,6 +183,9 @@ const validationCadastro = yup.object().shape({
 
               {/* input telefone */}
               <View style={Estilo.inputcurto}>
+                {error.telefone &&
+                    <Text style={{ fontSize: 10, color: 'red' }}>{error.telefone}</Text>
+                }
                 <TextInput
                   style={Estilo.inputText}
                   placeholder="Telefone"
@@ -171,9 +198,12 @@ const validationCadastro = yup.object().shape({
 
               {/* input estado */}
               <View style={Estilo.inputcurto}>
+                {error.uf &&
+                    <Text style={{ fontSize: 10, color: 'red' }}>{error.uf}</Text>
+                }
                 <TextInput
                   style={Estilo.inputText}
-                  placeholder="Estado"
+                  placeholder="UF"
                   placeholderTextColor="#F97316"
                   value={values.uf}
                   onChangeText={handleChange('uf')}
@@ -186,9 +216,18 @@ const validationCadastro = yup.object().shape({
               <Text style={Estilo.loginText}>Entrar</Text>
             </TouchableOpacity> */}
 
-            <TouchableOpacity style={Estilo.loginButton} onPress={handleSubmit}>
+            <TouchableOpacity style={Estilo.loginButton} onPress={handleSubmit} disabled={!isValid}>
               <Text style={Estilo.loginText}>Cadastrar</Text>
             </TouchableOpacity>
+
+            {/* <Modal visible={showModal}>
+              <View style={Estilo.modalContainer}>
+                  <Text style={Estilo.modalText}>Cadastro realizado com sucesso!</Text>
+                  <TouchableOpacity style={Estilo.modalButton} onPress={() => setShowModal(false)}>
+                  <Text style={Estilo.modalButtonText}>OK</Text>
+                  </TouchableOpacity>
+              </View>
+            </Modal> */}
 
 
           </View>
