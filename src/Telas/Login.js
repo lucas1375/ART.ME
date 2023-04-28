@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView
  } from 'react-native';
  import { Formik } from 'formik';
@@ -8,35 +8,59 @@ import Estilo from './Estilo';
 
  const  Login = ({navigation}) =>  {
 
-  // const [user, setUser] = useState(null);
-  // const [password, setPassword] = useState(null);
-  // const [message, setMessage] = useState(null);
-
 const handleClickLogin = async (values) => {
   // Coloque o ip do seu pc. Para isso, abra o console e digite
   // 'ipconfig' copie o endereço IPV4 e cole na linha abaixo
-  axios.get("http://192.168.100.6:3005/listarUsuario", {
+
+  axios.get(`http://10.0.3.107:3005/listarUsuarioEMAIL/${values.email}/${values.password}`, {
     email: values.email,
     password: values.password,
-  }, {mode: 'no-cors'})
+  })
 
-  .then((response) => {
+  .then(function (response) {
+    console.log(response.data)
+    setDados(response.data.data)
+
     if(response == 201){
-      handleCadastroSuccess();
     } else if(response == 404){
       console.log("algo errado")
-    }
-    
+    }    
   })
   .catch((error) => {
     console.log(error);
   })  
 }
 
+const [dados, setDados] = useState([]);
+const [email, setEmail] = useState(null);
+const [password, setPassword] = useState(null);
+
+useEffect(()=>{
+  dados != null
+  ?
+  console.log("Dados encontrados!")
+  :
+  console.log("Dados nao encontrados!")
+},[dados])
+
+function ValidationLogin() {
+  let dados = {
+    email: email,
+    password: password,
+  }
+    if(dados != null){
+      navigation.navigate('Menu')
+    }else{
+      alert("Login invalido!")
+    }
+  }
+
   return (
     
   <Formik
       
+  
+      validationSchema={ValidationLogin}
       initialValues={{
           email: '',
           password: ''          

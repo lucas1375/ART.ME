@@ -11,7 +11,7 @@ const Cadastro = ({ navigation }) => {
 const handleClickCadastro = async (values) => {
   // Coloque o ip do seu pc. Para isso, abra o console e digite
   // 'ipconfig' copie o endereço IPV4 e cole na linha abaixo
-  axios.post("http://192.168.100.6:3005/cadastrarUsuario", {
+  axios.post("http://10.0.3.107:3005/cadastrarUsuario", {
     nome: values.nome,
     email: values.email,
     password: values.password,
@@ -46,7 +46,7 @@ const validationCadastro = yup.object().shape({
 
   password: yup
     .string()
-    .min(8, 'A senha deve ter 8 caracteres')
+    .min(8, ({min}) => `A senha deve ter ${min} caracteres`)
     .required("Este campo é obrigatório"),
 
   telefone: yup
@@ -93,7 +93,7 @@ const validationCadastro = yup.object().shape({
   //   uf: '',
   // };
 
-  const [error, setError] = useState('');
+  // const [error, setError] = useState('');
 
   // teoricamente não usado
   // const { nome, email, password, telefone, uf } = userInfo;
@@ -101,7 +101,7 @@ const validationCadastro = yup.object().shape({
   return (
     <Formik
       
-    // validationSchema={validationCadastro}
+    validationSchema={validationCadastro}
     initialValues={{
         nome: '',
         email: '',
@@ -117,6 +117,9 @@ const validationCadastro = yup.object().shape({
       {({ handleChange,
           handleBlur,
           handleSubmit,
+          setFieldTouched,
+          errors,
+          touched,
           isValid,
           values 
         }) => (
@@ -134,8 +137,8 @@ const validationCadastro = yup.object().shape({
 
             {/* input nome */}
             < View style={Estilo.inputView}>
-              {error.nome &&
-                  <Text style={{ fontSize: 10, color: 'red' }}>{error.nome}</Text>
+              {touched.nome && errors.name &&
+                  <Text style={Estilo.msgErro}>{errors.nome}</Text>
               }
               <TextInput
                 style={Estilo.inputText}
@@ -143,14 +146,14 @@ const validationCadastro = yup.object().shape({
                 placeholderTextColor="#F97316"
                 value={values.nome}
                 onChangeText={handleChange('nome')}
-                onBlur={handleBlur('nome')}
+                onBlur={() => setFieldTouched('nome')}
               />
             </View>
 
             {/* input email */}
             <View style={Estilo.inputView}>
-              {error.email &&
-                  <Text style={{ fontSize: 10, color: 'red' }}>{error.email}</Text>
+              {touched.email && errors.email &&
+                  <Text style={Estilo.msgErro}>{errors.email}</Text>
               }
               <TextInput
                 style={Estilo.inputText}
@@ -164,8 +167,8 @@ const validationCadastro = yup.object().shape({
 
             {/* input senha */}
             <View style={Estilo.inputView}>
-              {error.password &&
-                  <Text style={{ fontSize: 10, color: 'red' }}>{error.password}</Text>
+              {errors.password && errors.password &&
+                  <Text style={Estilo.msgErro}>{errors.password}</Text>
               }
               <TextInput
                 style={Estilo.inputText}
@@ -183,8 +186,8 @@ const validationCadastro = yup.object().shape({
 
               {/* input telefone */}
               <View style={Estilo.inputcurto}>
-                {error.telefone &&
-                    <Text style={{ fontSize: 10, color: 'red' }}>{error.telefone}</Text>
+                {errors.telefone && errors.telefone &&
+                    <Text style={Estilo.msgErro}>{errors.telefone}</Text>
                 }
                 <TextInput
                   style={Estilo.inputText}
@@ -198,8 +201,8 @@ const validationCadastro = yup.object().shape({
 
               {/* input estado */}
               <View style={Estilo.inputcurto}>
-                {error.uf &&
-                    <Text style={{ fontSize: 10, color: 'red' }}>{error.uf}</Text>
+                {errors.uf && errors.uf &&
+                    <Text style={Estilo.msgErro}>{errors.uf}</Text>
                 }
                 <TextInput
                   style={Estilo.inputText}

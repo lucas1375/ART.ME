@@ -125,6 +125,12 @@ const Estilo = StyleSheet.create({
      flex:1
     },
 
+    msgErro: {
+      fontSize: 15,
+      color: 'red',
+      height: 20,
+    },
+
     // --------- Estilos da tela de Cadastro ----------
 
       // Container da página Cadastro
