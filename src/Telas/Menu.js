@@ -8,7 +8,7 @@ const Menu = () => {
       <View style={{ flexDirection: 'row' }}>
         <Image source={require('../../assets/Vetor.png')} style={styles.vetor} />
         <View style={styles.selecao}>
-          <Text style={styles.txtsamuel}>Oi, Samuel!</Text>
+          <Text style={styles.txtsamuel}>Oi, Usuário!</Text>
           <Image source={require('../../assets/Samuel.png')} style={styles.artista} />
         </View>
       </View>
@@ -20,6 +20,8 @@ const Menu = () => {
 
       <View style={styles.branco}>
         <ScrollView horizontal>
+
+          
           <BotaoCategoria texto={'Grafite'} imagem={require('../../assets/grafite.png')} />
 
           <BotaoCategoria texto={'Pintor'} imagem={require('../../assets/Pintor.png')} />
@@ -33,7 +35,15 @@ const Menu = () => {
       
       <Text>Artistas Recomendados</Text>
       
-      <View style={styles.jeff}>
+      <View style={styles.containeruser1}>
+      <Image source={require('../../assets/art.png')} style={styles.cara} />
+      <Text>Jefferson
+        Santos Fotografo
+        <Image source={require('../../assets/estrela.png')} style={styles.estrela} />
+      </Text>
+      
+      </View>
+      <View style={styles.containeruser2}>
       <Image source={require('../../assets/art.png')} style={styles.cara} />
       <Text>Jefferson
         Santos Fotografo
@@ -58,16 +68,17 @@ const styles = StyleSheet.create({
   artista: {
     height: 60,
     width: 60,
-    marginVertical: 30,
-    marginHorizontal: 15,
-    direction: ''
+    marginTop:12 ,
+    marginVertical:40,
+    right: 140
   },
   txtsamuel: {
     direction: 'rtl',
     fontSize: 22,
+    marginTop: 80,
     fontWeight: 'bold',
     marginVertical: 30,
-    marginHorizontal: 15
+    marginHorizontal: 20
   },
   selecao: {
     direction: 'rtl',
@@ -109,7 +120,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   },
   quadro: {
-    width: 50,
+    width: 0,
     height: 50,
     marginVertical: 30,
     marginHorizontal: 20
@@ -121,26 +132,54 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   },
   imgdetalhe:{
-    width: 300,
-    height: 100,
-    padding: 30
+    alignItems:'center',
+    width:390,
+    height:146,
+    left: 0,
+    right: 7,
+    marginBottom:35,
+    borderRadius:16
+   
   },
-  jeff: {
+  containeruser1: {
     display: 'flex', 
     justifyContent: 'center',
      alignItems: 'center',
-      padding: 5, 
+      padding: 5,
+      width: 150,
+      height: 160, 
     borderRadius: 2,
      borderWidth: 4,
       borderColor: '#F97316',
        margin: 4,
-       backgroundColor: 'white'
+       backgroundColor: 'white',
+       borderRadius:12
+
+      },
+      containeruser2: {
+        display: 'flex', 
+        justifyContent: 'center',
+         alignItems: 'center',
+          padding: 5,
+          width: 150,
+          height: 160, 
+        borderRadius: 2,
+         borderWidth: 4,
+          borderColor: '#F97316',
+           margin: 4,
+           marginTop:-163,
+           backgroundColor: 'white',
+           borderRadius:12,
+           left:180
   },
   cara: {
-     height: 50,
-     width: 90,
+     height: 76,
+     width: 114,
      marginVertical: 10,
-    marginHorizontal: 5
+    marginHorizontal: 5,
+    borderRadius:6,
+    
+    
   },
   estrela: {
     width: 10,
