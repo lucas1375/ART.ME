@@ -6,14 +6,14 @@ const Menu = () => {
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: 'row' }}>
-        <Image source={require('../../assets/Vetor.png')} style={styles.vetor} />
+        <Image source={require('../../assets/Imagens/Vetor.png')} style={styles.vetor} />
         <View style={styles.selecao}>
           <Text style={styles.txtsamuel}>Oi, Usuário!</Text>
-          <Image source={require('../../assets/Samuel.png')} style={styles.artista} />
+          <Image source={require('../../assets/Imagens/Samuel.png')} style={styles.artista} />
         </View>
       </View>
       <View style={styles.image}>
-        <Image source={require('../../assets/artistas.png')} style={styles.imgdetalhe} />
+        <Image source={require('../../assets/Imagens/artistas.png')} style={styles.imgdetalhe} />
         
       </View>
 
@@ -22,13 +22,13 @@ const Menu = () => {
         <ScrollView horizontal>
 
           
-          <BotaoCategoria texto={'Grafite'} imagem={require('../../assets/grafite.png')} />
+          <BotaoCategoria texto={'Grafite'} imagem={require('../../assets/Imagens/grafite.png')} />
 
-          <BotaoCategoria texto={'Pintor'} imagem={require('../../assets/Pintor.png')} />
+          <BotaoCategoria texto={'Pintor'} imagem={require('../../assets/Imagens/Pintor.png')} />
 
-          <BotaoCategoria texto={'Pintor'} imagem={require('../../assets/quadros.png')} />
+          <BotaoCategoria texto={'Pintor'} imagem={require('../../assets/Imagens/quadros.png')} />
 
-          <BotaoCategoria texto={'Pintor'} imagem={require('../../assets/artesanato.png')} />
+          <BotaoCategoria texto={'Pintor'} imagem={require('../../assets/Imagens/artesanato.png')} />
         </ScrollView>
 
       </View>
@@ -36,18 +36,18 @@ const Menu = () => {
       <Text>Artistas Recomendados</Text>
       
       <View style={styles.containeruser1}>
-      <Image source={require('../../assets/art.png')} style={styles.cara} />
+      <Image source={require('../../assets/Imagens/art.png')} style={styles.cara} />
       <Text>Jefferson
         Santos Fotografo
-        <Image source={require('../../assets/estrela.png')} style={styles.estrela} />
+        <Image source={require('../../assets/Imagens/estrela.png')} style={styles.estrela} />
       </Text>
       
       </View>
       <View style={styles.containeruser2}>
-      <Image source={require('../../assets/art.png')} style={styles.cara} />
+      <Image source={require('../../assets/Imagens/art.png')} style={styles.cara} />
       <Text>Jefferson
         Santos Fotografo
-        <Image source={require('../../assets/estrela.png')} style={styles.estrela} />
+        <Image source={require('../../assets/Imagens/estrela.png')} style={styles.estrela} />
       </Text>
       
       </View>

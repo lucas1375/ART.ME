@@ -6,11 +6,11 @@ const Perfil = () => {
 return (
     
     <View>
-         <Image source={require('../../assets/Vetor.png')} style={styles.vetor} />
+         <Image source={require('../../assets/Imagens/Vetor.png')} style={styles.vetor} />
     <View style={styles.beck}>
     <Text style={styles.edit}>Editar</Text>
     
-    <Image source={require('../../assets/Samuel.png')} style={styles.margem} />
+    <Image source={require('../../assets/Imagens/Samuel.png')} style={styles.margem} />
    
     <Text style={styles.samu}> Samuel Cursino </Text>
     <Text style={styles.samu}> 10K Seguidores 

@@ -5,7 +5,7 @@ import Estilo from './Estilo';
 const BoasVindas2 = ({navigation}) => {
     return (
         <View style={Estilo.telaBoasVindas}>
-            <Image source={require('../../assets/backgroundboasvindas.png')} style={Estilo.arte} />
+            <Image source={require('../../assets/Imagens/backgroundboasvindas.png')} style={Estilo.arte} />
             <View style={Estilo.campoinferior}>
                 <Text style={Estilo.textoBoasVindas}>
                     Escolha o serviço perfeito para você
