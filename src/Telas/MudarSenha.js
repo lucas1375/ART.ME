@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ScrollView
  } from 'react-native';
 
- const  Esqueceu = ({navigation}) =>  {
+ const  MudarSenha = ({navigation}) =>  {
   return (
     
     <View style={styles.tela}>
@@ -164,4 +164,4 @@ const styles = StyleSheet.create({
   
 });
 
-export default Esqueceu;
+export default MudarSenha;

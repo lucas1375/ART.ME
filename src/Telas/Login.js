@@ -9,10 +9,7 @@ import Estilo from './Estilo';
  const  Login = ({navigation}) =>  {
 
 const handleClickLogin = async (values) => {
-  // Coloque o ip do seu pc. Para isso, abra o console e digite
-  // 'ipconfig' copie o endereço IPV4 e cole na linha abaixo
-
-  axios.get(`http://10.0.3.107:3005/listarUsuarioEMAIL/${values.email}/${values.password}`, {
+  axios.get(`http://192.168.100.6:3005/listarUsuarioEMAIL/${values.email}/${values.password}`, {
     email: values.email,
     password: values.password,
   })
@@ -57,9 +54,7 @@ function ValidationLogin() {
 
   return (
     
-  <Formik
-      
-  
+    <Formik    
       validationSchema={ValidationLogin}
       initialValues={{
           email: '',
@@ -115,7 +110,7 @@ function ValidationLogin() {
         />
       </View>
 
-      <TouchableOpacity  onPress={()=> navigation.navigate('Esqueceu')}>        
+      <TouchableOpacity  onPress={()=> navigation.navigate('MudarSenha')}>        
       <Text style={Estilo.forgot}>Esqueceu a senha?</Text>
       </TouchableOpacity>
       

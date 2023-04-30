@@ -9,21 +9,19 @@ const Cadastro = ({ navigation }) => {
 
   // Axios Cadastro
 const handleClickCadastro = async (values) => {
-  // Coloque o ip do seu pc. Para isso, abra o console e digite
-  // 'ipconfig' copie o endereço IPV4 e cole na linha abaixo
-  axios.post("http://10.0.3.107:3005/cadastrarUsuario", {
+  axios.post("http://192.168.100.6:3005/cadastrarUsuario", {
     nome: values.nome,
     email: values.email,
     password: values.password,
     telefone: values.telefone,
     uf: values.uf
-  }, {mode: 'no-cors'})
+  })
 
   .then((response) => {
     if(response == 201){
-      handleCadastroSuccess();
+      navigation.navigate('Menu')
     } else if(response == 400){
-      console.log("algo errado")
+      alert.alert("algo errado")
     }
     
   })
@@ -51,11 +49,11 @@ const validationCadastro = yup.object().shape({
 
   telefone: yup
   .string()
-  .required("Este campo é obrigatório"),
+  .required("Campo obrigatório"),
 
   uf: yup
   .string()
-  .required("Este campo é obrigatório"),
+  .required("Campo obrigatório"),
   
 })
 
@@ -65,9 +63,9 @@ const validationCadastro = yup.object().shape({
   // const [message, setMessage] = useState(null);
 
   //informaria caso o cadastro fosse completado
-  // const handleCadastroSuccess = () => {
-  //   setShowModal(true);
-  // }
+  const handleCadastroSuccess = ()=>{
+    navigation.navigate('Menu');
+  }
 
   // useEffect(()=>{
   //   if(enviar==true){ 
@@ -137,7 +135,7 @@ const validationCadastro = yup.object().shape({
 
             {/* input nome */}
             < View style={Estilo.inputView}>
-              {touched.nome && errors.name &&
+              {touched.nome && errors.nome &&
                   <Text style={Estilo.msgErro}>{errors.nome}</Text>
               }
               <TextInput
@@ -146,8 +144,8 @@ const validationCadastro = yup.object().shape({
                 placeholderTextColor="#F97316"
                 value={values.nome}
                 onChangeText={handleChange('nome')}
-                onBlur={() => setFieldTouched('nome')}
-              />
+                onBlur={() => setFieldTouched('nome')}                
+              />              
             </View>
 
             {/* input email */}
