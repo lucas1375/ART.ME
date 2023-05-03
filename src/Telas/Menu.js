@@ -9,7 +9,7 @@ const Menu = () => {
         <Image source={require('../../assets/Imagens/Vetor.png')} style={styles.vetor} />
         <View style={styles.selecao}>
           <Text style={styles.txtsamuel}>Oi, Usuário!</Text>
-          <Image source={require('../../assets/Imagens/Samuel.png')} style={styles.artista} />
+          <Image source={require('../../assets/Imagens/usuarioM.png')} style={styles.artista} />
         </View>
       </View>
       <View style={styles.image}>

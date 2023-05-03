@@ -108,7 +108,7 @@ const Perfil = () => {
             Editar
           </Text>
 
-          <Image source={require('../../assets/Imagens/Samuel.png')} style={styles.margem} />
+          <Image source={require('../../assets/Imagens/usuarioM.png')} style={styles.margem} />
 
           <Text style={styles.samu}>
             Samuel Cursino
