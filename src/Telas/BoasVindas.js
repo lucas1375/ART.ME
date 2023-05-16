@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Estilo from './Estilo';
 
-const BoasVindas2 = ({navigation}) => {
+const BoasVindas = ({navigation}) => {
     return (
         <View style={Estilo.telaBoasVindas}>
             <Image source={require('../../assets/Imagens/backgroundboasvindas.png')} style={Estilo.arte} />
@@ -26,5 +26,5 @@ const BoasVindas2 = ({navigation}) => {
 
 
 
-export default BoasVindas2;
+export default BoasVindas;
 
