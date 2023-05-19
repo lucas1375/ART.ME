@@ -11,19 +11,32 @@ export default function BottomSheetDemo() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={toggle}>
-        <View style={styles.button}>
-          <Text>Selecione uma categoria...</Text>
+        <View>
+          <Text style={styles.text}> Escreva algo </Text>
         </View>
-      </TouchableOpacity>
+        <TouchableOpacity onPress={toggle}>
+        <View>
+          <Text style={styles.text}>  Selecione uma categoria...</Text>
+        </View>
+        </TouchableOpacity>
+  
+        <View>
+          <Text>  ___________________________________________________</Text>
+        </View>
+        <View>
+          <Text style={styles.text2}>Escreva...</Text>
+        </View>
+       
+    
       <BottomSheet
         visible={visible}
         onBackButtonPress={toggle}
         onBackdropPress={toggle}
       >
         <View style={styles.card}>
-          <Text>Place your custom view inside BottomSheet</Text>
+          <Text>Selecione uma categoria...</Text>
         </View>
+        
       </BottomSheet>
     </View>
   );
@@ -32,19 +45,43 @@ export default function BottomSheetDemo() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    backgroundColor: 'white'
   },
   button: {
     backgroundColor: "#fff",
     borderWidth: 2,
-    borderRadius: 50,
+    borderRadius: 100,
     padding: 16,
   },
   card: {
     backgroundColor: "#fff",
-    height: 250,
+    height: 700,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    fontSize: '20%'
+  },
+  text: {
+    fontSize: 15,
+    margin:15,
     justifyContent: "center",
     alignItems: "center",
+
   },
+  text2: {
+    margin: 15,
+    textAlign: "center",
+    justifyContent: "center"
+  },
+  seta: {
+
+    height:10,
+    width: 10
+    },
+    inicio: {
+      textAlign: "center",
+      justifyContent:"center"
+
+    }
 });
