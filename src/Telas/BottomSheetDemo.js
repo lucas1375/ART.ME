@@ -26,6 +26,12 @@ export default function BottomSheetDemo() {
         <View>
           <Text style={styles.text2}>Escreva...</Text>
         </View>
+        <View>
+          <Text style={styles.image}>
+            Adicionar uma Imagem
+
+          </Text>
+        </View>
        
     
       <BottomSheet
@@ -36,6 +42,8 @@ export default function BottomSheetDemo() {
         <View style={styles.card}>
           <Text>Selecione uma categoria...</Text>
         </View>
+
+        
         
       </BottomSheet>
     </View>
@@ -82,6 +90,15 @@ const styles = StyleSheet.create({
     inicio: {
       textAlign: "center",
       justifyContent:"center"
-
+    },
+    image: {
+      borderWidth: 2,
+    borderRadius: 20,
+    padding: 5,
+    backgroundColor: 'orange',
+    marginEnd: 100,
+    fontFamily: 'white',
+    flex: 3
     }
+    
 });

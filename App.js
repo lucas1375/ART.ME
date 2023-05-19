@@ -25,8 +25,7 @@ const StackNavegacao = () => {
         <Stack.Screen name="MudarSenha" component={MudarSenha} />
         <Stack.Screen name="Perfil" component={Perfil} />
         <Stack.Screen name="BoasVindas" component={BoasVindas} options={{headerShown:false}} />
-        <Stack.Screen name="Categoria" component={TabNavegacao} options={{headerShown:false}} />
-        <Stack.Screen name="BottomSheetDemo" component={BottomSheetDemo} />
+        <Stack.Screen name="BottomSheetDemo" component={TabNavegacao} />
         
       </Stack.Navigator>
     </NavigationContainer>
@@ -46,7 +45,7 @@ const TabNavegacao = () => {
         }}
       />
       <Tab.Screen name="Perfil" component={Perfil} />
-      <Tab.Screen name="Categoria" component={Categoria} />
+      <Tab.Screen name="BottomSheetDemo" component={BottomSheetDemo} />
     </Tab.Navigator>
   );
 }
