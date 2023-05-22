@@ -1,51 +1,59 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { BottomSheet } from "react-native-btr";
+import { View, Text, StyleSheet, TouchableOpacity, Modal, Pressable, Alert, Image } from "react-native";
 
 export default function BottomSheetDemo() {
-  const [visible, setVisible] = useState(false);
-
-  function toggle() {
-    setVisible((visible) => !visible);
-  }
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <View style={styles.container}>
-        <View>
-          <Text style={styles.text}> Escreva algo </Text>
-        </View>
-        <TouchableOpacity onPress={toggle}>
-        <View>
-          <Text style={styles.text}>  Selecione uma categoria...</Text>
-        </View>
-        </TouchableOpacity>
-  
-        <View>
-          <Text>  ___________________________________________________</Text>
-        </View>
-        <View>
-          <Text style={styles.text2}>Escreva...</Text>
-        </View>
-        <View>
-          <Text style={styles.image}>
-            Adicionar uma Imagem
+      <View style={styles.topContainer}>
+        <Text style={styles.text}>Escreva algo</Text> 
+        
+      </View>
+      <TouchableOpacity onPress={() => setModalVisible(true)}>
+        <View style={styles.teste}>
+          <Text style={styles.text2}>Selecione uma categoria...</Text>    
 
-          </Text>
         </View>
-       
-    
-      <BottomSheet
-        visible={visible}
-        onBackButtonPress={toggle}
-        onBackdropPress={toggle}
+        <View
+  style={{
+    borderBottomColor: 'black',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    width: 500
+  }}
+/>
+</TouchableOpacity>
+     <View>
+      <Text style={styles.text2}>Escreva algo...</Text>
+     </View>
+   
+      
+
+      <View style={styles.bottomLeftContainer}>
+        <Text style={styles.image}>Adicionar uma Imagem</Text>
+      </View>
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(!modalVisible);
+        }}
       >
-        <View style={styles.card}>
-          <Text>Selecione uma categoria...</Text>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Selecione uma categoria</Text>
+            <Pressable
+              
+              onPress={() => setModalVisible(!modalVisible)}>
+             <Text style={styles.mode}>Voltar</Text>
+              
+            </Pressable>
+          </View>
         </View>
-
-        
-        
-      </BottomSheet>
+      </Modal>
     </View>
   );
 }
@@ -54,51 +62,89 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "flex-start",
-    alignItems: "flex-start",
+    
     backgroundColor: 'white'
   },
-  button: {
-    backgroundColor: "#fff",
-    borderWidth: 2,
-    borderRadius: 100,
-    padding: 16,
+  topContainer: {
+    marginTop: 10,
+    
   },
-  card: {
-    backgroundColor: "#fff",
-    height: 700,
-    justifyContent: "flex-start",
+  button: {
+    borderRadius:20,
+    elevation: 2,
+    
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+    padding: 15
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
     alignItems: "center",
-    fontSize: '20%'
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    width: 400,
+    height: 600,
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
   },
   text: {
     fontSize: 15,
-    margin:15,
-    justifyContent: "center",
-    alignItems: "center",
-
+    textAlign: "center"
   },
-  text2: {
-    margin: 15,
-    textAlign: "center",
-    justifyContent: "center"
-  },
-  seta: {
-
-    height:10,
-    width: 10
-    },
-    inicio: {
-      textAlign: "center",
-      justifyContent:"center"
-    },
-    image: {
-      borderWidth: 2,
+  image: {
+    borderWidth: 2,
     borderRadius: 20,
     padding: 5,
     backgroundColor: 'orange',
-    marginEnd: 100,
-    fontFamily: 'white',
-    flex: 3
-    }
-    
+    color: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text2: {
+   margin: 15
+  },
+  bottomLeftContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    margin: 15,
+  },
+  text2: {
+    margin:10
+  },
+  arrowImage: {
+    width: 20,
+    height: 20,
+    marginLeft: 5,
+  },
+  teste: {
+    flexDirection: 'row'
+  },
+  mode: {
+    borderWidth: 2,
+    borderRadius: 20,
+    padding: 5,
+    backgroundColor: 'orange',
+    color: 'white',
+    margin:590
+
+  },
 });
