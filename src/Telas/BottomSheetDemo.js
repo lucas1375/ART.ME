@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
     padding: 35,
     alignItems: "center",
     shadowColor: "#000",
-    width: 400,
-    height: 600,
+    width: 350,
+    height: 480,
     shadowOffset: {
       width: 0,
       height: 2
