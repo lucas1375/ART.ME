@@ -1,188 +1,172 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, ImageBackground } from 'react-native';
-import Estilo from './Estilo';
+import { 
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+  ImageBackground 
+} from 'react-native';
 
 const Trabalhos = () => {
   return (
     <View>
-       <ImageBackground source={require('../../assets/Imagens/fixar-mapa.png')} style={styles.museu} >
-        <View style={{justifyContent:'center',alignItems:'center',alignContent:'center'}}>
-          <Text style={{color:'white'}}>Vendido</Text>
+      <ImageBackground source={require('../../assets/Imagens/fixar-mapa.png')} style={stylePerfil.museu}>
+        <View style={{ justifyContent: 'center', alignItems: 'center', alignContent: 'center' }}>
+          <Text style={{ color: 'white' }}>Vendido</Text>
         </View>
-        </ImageBackground>
+      </ImageBackground>
     </View>
-  )
+  );
 };
 
 const Sobre = () => {
   return (
     <View>
-      <Text style={styles.red}>
-        Pintor de Quadros
-      </Text>
+      <Text style={stylePerfil.red}>Pintor de Quadros</Text>
 
-      <Text style={styles.texto1}>
+      <Text style={stylePerfil.texto1}>
         olá, prazer!!
-
         Sou artista no ramo de pintura de quadros e artesanato.
         Vivo em busca de inspiração, impacto positivo e uma vida saudável.
       </Text>
 
-
-      <Text style={styles.texto1}>
+      <Text style={stylePerfil.texto1}>
         Tenho como objetivo principal "Transformar o mundo através da arte". Eu acredito
         que somente através da pintura será possível impactar (em grande escala) a sociedade e
         o meio ambiente e transformar positivamente o mundo.
       </Text>
 
-      <View style={styles.carac}>
-        <View style={styles.caixacarac}>
-          <Image source={require('../../assets/Imagens/museu.png')} style={styles.museu} />
-          <Text style={styles.textocarac}>
-            Formado em Artes Visuais
-          </Text>
+      <View style={stylePerfil.carac}>
+        <View style={stylePerfil.caixacarac}>
+          <Image source={require('../../assets/Imagens/museu.png')} style={stylePerfil.museu} />
+          <Text style={stylePerfil.textocarac}>Formado em Artes Visuais</Text>
         </View>
-        <View style={styles.caixacarac}>
-          <Image source={require('../../assets/Imagens/fixar-mapa.png')} style={styles.museu} />
-          <Text style={styles.textocarac}>
-            Sao Paulo
-          </Text>
+        <View style={stylePerfil.caixacarac}>
+          <Image source={require('../../assets/Imagens/fixar-mapa.png')} style={stylePerfil.museu} />
+          <Text style={stylePerfil.textocarac}>São Paulo</Text>
         </View>
       </View>
     </View>
-  )
+  );
 };
 
 const Vendas = () => {
   return (
     <View>
-      <Text>
-        Vendas3
-      </Text>
+      <Text>Vendas3</Text>
     </View>
-  )
+  );
 };
-
 
 const Rascunhos = () => {
   return (
     <View>
-      <Text>
-        Rascunhos4
-      </Text>
+      <Text>Rascunhos</Text>
     </View>
-  )
+  );
 };
 
-
-const Perfil = () => {
-
-  const [mostrarTrabalhos, setMostrarTrabalhos] = useState(false)
-  const [mostrarSobre, setMostrarSobre] = useState(false)
-  const [mostrarVendas, setMostrarVendas] = useState(false)
-  const [mostrarRascunhos, setMostrarRascunhos] = useState(false)
-
-  const [clicou, setClicou] = useState(0)
+const Perfil = ({ navigation }) => {
+  const [mostrarTrabalhos, setMostrarTrabalhos] = useState(false);
+  const [mostrarSobre, setMostrarSobre] = useState(false);
+  const [mostrarVendas, setMostrarVendas] = useState(false);
+  const [mostrarRascunhos, setMostrarRascunhos] = useState(false);
+  const [clicou, setClicou] = useState(0);
+  const [usuario, setUsuario] = useState([]);
 
   useEffect(() => {
-    clicou === 1 ? (setMostrarTrabalhos(true)) : (setMostrarTrabalhos(false))
-  }, [clicou])
+    getUsuario();
+  }, []);
 
   useEffect(() => {
-    clicou === 2 ? (setMostrarSobre(true)) : (setMostrarSobre(false))
-  }, [clicou])
+    setMostrarTrabalhos(clicou === 1);
+  }, [clicou]);
 
   useEffect(() => {
-    clicou === 3 ? (setMostrarVendas(true)) : (setMostrarVendas(false))
-  }, [clicou])
+    setMostrarSobre(clicou === 2);
+  }, [clicou]);
 
   useEffect(() => {
-    clicou === 4 ? (setMostrarRascunhos(true)) : (setMostrarRascunhos(false))
-  }, [clicou])
+    setMostrarVendas(clicou === 3);
+  }, [clicou]);
+
+  useEffect(() => {
+    setMostrarRascunhos(clicou === 4);
+  }, [clicou]);
+
+  async function getUsuario() {
+    let response = await AsyncStorage.getItem('usuarioData');
+    let json = JSON.parse(response);
+    setUsuario(json);
+  }
 
   return (
     <ScrollView>
+      <View style={stylePerfil.tela}>
+        <Image source={require('../../assets/Imagens/Vetor.png')} style={stylePerfil.vet} />
+        <View style={stylePerfil.beck}>
+          <Text style={stylePerfil.edit}>Editar</Text>
 
-      <View style={styles.tela}>
-        <Image source={require('../../assets/Imagens/Vetor.png')} style={styles.vet} />
-        <View style={styles.beck}>
-          <Text style={styles.edit}>
-            Editar
+          <View>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+              <Text style={stylePerfil.edit}> Sair </Text>
+            </TouchableOpacity>
+          </View>
+
+          <Image source={require('../../assets/Imagens/usuarioM.png')} style={stylePerfil.margem} />
+
+          <Text style={stylePerfil.samu}>
+            {usuario.nome} {usuario.sobrenome}
           </Text>
-
-          <Image source={require('../../assets/Imagens/usuarioM.png')} style={styles.margem} />
-
-          <Text style={styles.samu}>
-            Samuel Cursino
-          </Text>
-          <Text style={styles.samu}>
-            10K Seguidores 12K Seguindo
+          <Text style={stylePerfil.samu}>
+            {usuario.catServicoNomeCategoria}
           </Text>
         </View>
 
         <View>
-          <View style={styles.botoes}>
-            <TouchableOpacity style={styles.escolhas} onPress={() => setClicou(1)}>
-              <Text>
-                Trabalhos
-              </Text>
+          <View style={stylePerfil.botoes}>
+            <TouchableOpacity style={stylePerfil.escolhas} onPress={() => setClicou(1)}>
+              <Text>Trabalhos</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.escolhas} onPress={() => setClicou(2)}>
+            <TouchableOpacity style={stylePerfil.escolhas} onPress={() => setClicou(2)}>
               <Text>Sobre</Text>
-
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.escolhas} onPress={() => setClicou(3)}>
-              <Text>
-                Vendas
-              </Text>
+            <TouchableOpacity style={stylePerfil.escolhas} onPress={() => setClicou(3)}>
+              <Text>Vendas</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.escolhas} onPress={() => setClicou(4)}>
-              <Text>
-                Rascunhos
-              </Text>
+            <TouchableOpacity style={stylePerfil.escolhas} onPress={() => setClicou(4)}>
+              <Text>Rascunhos</Text>
             </TouchableOpacity>
-
           </View>
-          {
-            mostrarTrabalhos === true ? <Trabalhos /> : <View></View>
-          }
 
-          {
-            mostrarSobre === true ? <Sobre /> : <View></View>
-          }
-
-          {
-            mostrarVendas === true ? <Vendas /> : <View></View>
-          }
-
-          {
-            mostrarRascunhos === true ? <Rascunhos /> : <View></View>
-          }
-
+          {mostrarTrabalhos && <Trabalhos />}
+          {mostrarSobre && <Sobre />}
+          {mostrarVendas && <Vendas />}
+          {mostrarRascunhos && <Rascunhos />}
         </View>
       </View>
     </ScrollView>
-  )
-}
+  );
+};
 
-const styles = StyleSheet.create({
+const stylePerfil = StyleSheet.create({
   containerLogin: {
     margin: 80,
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   beck: {
     width: '90%',
-    backgroundColor: 'orange',
+    backgroundColor: '#FFBB1B',
     borderRadius: 15,
     padding: 30,
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   button: {
     backgroundColor: '#007AFF',
@@ -194,7 +178,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     padding: 10
-
   },
   red: {
     color: '#FF0000',
@@ -204,15 +187,16 @@ const styles = StyleSheet.create({
   margem: {
     height: 50,
     width: 50,
-    backgroundColor: 'white'
   },
   samu: {
     fontWeight: 'bold',
     color: '#FFFFFF'
   },
-  edit: {
-    fontWeight: 'bold',
-    color: '#FFFFFF'
+  edit2: {
+    textAlign: 'left',
+    alignContent: 'flex-end',
+    color: 'white',
+    margin: 15
   },
   texto1: {
     margin: 10
@@ -220,7 +204,8 @@ const styles = StyleSheet.create({
   edit: {
     height: 20,
     width: 300,
-    color: 'white'
+    color: 'white',
+    margin: 10
   },
   tela: {
     flex: 1,
@@ -231,8 +216,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   },
   museu: {
-    width: 25,
-    height: 25,
+    width: 250,
+    height: 250,
   },
   textocarac: {
     padding: 5
@@ -251,8 +236,9 @@ const styles = StyleSheet.create({
   vet: {
     width: 32,
     height: 32,
-   
-  }
+  },
+ 
+  
 });
 
 export default Perfil;
